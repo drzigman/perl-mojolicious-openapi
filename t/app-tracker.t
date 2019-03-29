@@ -6,7 +6,7 @@ use Test::Mojo;
 my $t = Test::Mojo->new('Time::Tracker', {ledger_class => 'Ledger::Memory'});
 
 ## Health check
-$t->get_ok('/v1/health')->status_is(200)->content_like('{}');
+$t->get_ok('/v1/health')->status_is(200)->content_like( qr/{}/ );
 
 ## empty summary
 $t->get_ok('/v1/timers/summary')->status_is(200)->json_is('/summary' => {});
