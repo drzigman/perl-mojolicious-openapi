@@ -35,6 +35,19 @@ paths:
           description: Successful timer creation
           schema:
             type: object
+  /health:
+    get :
+      x-mojo-to: 'Health#welcome'
+      tags : [ 'Monitoring' ]
+      security : [ ]
+      summary : Health Check
+      description : >
+        Unauthenticated route for testing connectivity and service health
+      responses :
+        '200' :
+          description: Alive and well response
+          schema:
+            type: object
 
 definitions:
   Timer:
